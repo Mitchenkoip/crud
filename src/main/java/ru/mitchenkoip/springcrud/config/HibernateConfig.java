@@ -24,7 +24,7 @@ public class HibernateConfig {
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/spring_crud");
         dataSource.setUsername("root");
-        dataSource.setPassword("Liza07_liza98?");
+        dataSource.setPassword("");
 
         return dataSource;
     }

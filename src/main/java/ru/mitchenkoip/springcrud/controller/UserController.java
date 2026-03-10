@@ -42,13 +42,13 @@ public class UserController {
         return "redirect:/users";
     }
 
-    @GetMapping("/{id}/edit")
-    public String edit(Model model, @PathVariable("id") Long id) {
+    @GetMapping("/edit")
+    public String edit(@RequestParam("id") Long id, Model model) {
         model.addAttribute("user", userService.findById(id));
         return "edit_user";
     }
 
-    @PostMapping("/{id}")
+    @PostMapping("/update")
     public String update(@ModelAttribute("user") @Valid User user,
                          BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
@@ -58,8 +58,8 @@ public class UserController {
         return "redirect:/users";
     }
 
-    @PostMapping("/{id}/delete")
-    public String delete (@PathVariable("id") Long id) {
+    @PostMapping("/delete")
+    public String delete (@RequestParam("id") Long id) {
         System.out.println("delete" + id);
         userService.delete(id);
         return "redirect:/users";
